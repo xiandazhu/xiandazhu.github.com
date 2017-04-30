@@ -1,131 +1,231 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>jquery轮播效果图</title>
-<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-<link rel="stylesheet" type="text/css" href="css/index.css"/>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var length,
-			currentIndex = 0,
-			interval,
-			hasStarted = false, //是否已经开始轮播
-			t = 3000; //轮播时间间隔
-		length = $('.slider-panel').length;
-		
-		//将除了第一张图片隐藏
-		$('.slider-panel:not(:first)').hide();
-		//将第一个slider-item设为激活状态
-		$('.slider-item:first').addClass('slider-item-selected');
-		//隐藏向前、向后翻按钮
-		$('.slider-page').hide();
-		
-		//鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动
-		$('.slider-panel, .slider-pre, .slider-next').hover(function() {
-			stop();
-			$('.slider-page').show();
-		}, function() {
-			$('.slider-page').hide();
-			start();
-		});
-		
-		$('.slider-item').hover(function(e) {
-			stop();
-			var preIndex = $(".slider-item").filter(".slider-item-selected").index();
-			currentIndex = $(this).index();
-			play(preIndex, currentIndex);
-		}, function() {
-			start();
-		});
-		
-		$('.slider-pre').unbind('click');
-		$('.slider-pre').bind('click', function() {
-			pre();
-		});
-		$('.slider-next').unbind('click');
-		$('.slider-next').bind('click', function() {
-			next();
-		});
-		
-		/**
-		 * 向前翻页
-		 */
-		function pre() {
-			var preIndex = currentIndex;
-			currentIndex = (--currentIndex + length) % length;
-			play(preIndex, currentIndex);
-		}
-		/**
-		 * 向后翻页
-		 */
-		function next() {
-			var preIndex = currentIndex;
-			currentIndex = ++currentIndex % length;
-			play(preIndex, currentIndex);
-		}
-		/**
-		 * 从preIndex页翻到currentIndex页
-		 * preIndex 整数，翻页的起始页
-		 * currentIndex 整数，翻到的那页
-		 */
-		function play(preIndex, currentIndex) {
-			$('.slider-panel').eq(preIndex).fadeOut(500)
-				.parent().children().eq(currentIndex).fadeIn(1000);
-			$('.slider-item').removeClass('slider-item-selected');
-			$('.slider-item').eq(currentIndex).addClass('slider-item-selected');
-		}
-		
-		/**
-		 * 开始轮播
-		 */
-		function start() {
-			if(!hasStarted) {
-				hasStarted = true;
-				interval = setInterval(next, t);
-			}
-		}
-		/**
-		 * 停止轮播
-		 */
-		function stop() {
-			clearInterval(interval);
-			hasStarted = false;
-		}
-		
-		//开始轮播
-		start();
-	});
-</script>
-</head>
-<body>
-	<div class="slider">
-		<ul class="slider-main">
-			<li class="slider-panel">
-				<a href="" target="_blank"><img alt="关注脚本之家" title="关注脚本之家" src="img/1.jpg"></a>
-			</li>
-			<li class="slider-panel">
-				<a href="" target="_blank"><img alt="关注脚本之家" title="关注脚本之家" src="img/2.jpg"></a>
-			</li>
-			<li class="slider-panel">
-				<a href="" target="_blank"><img alt="关注脚本之家" title="关注脚本之家" src="img/3.jpg"></a>
-			</li>
-			<li class="slider-panel">
-				<a href="" target="_blank"><img alt="关注脚本之家" title="关注脚本之家" src="img/4.jpg"></a>
-			</li>
-		</ul>
-		<div class="slider-extra">
-			<ul class="slider-nav">
-				<li class="slider-item"></li>
-				<li class="slider-item"></li>
-				<li class="slider-item"></li>
-				<li class="slider-item"></li>
-			</ul>
-			<div class="slider-page">
-				<a class="slider-pre" href="javascript:;;">&lt;</a>
-				<a class="slider-next" href="javascript:;;">&gt;</a>
-			</div>
-		</div>
-	</div>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Welcome to the page</title>
+        
+		<link rel="stylesheet" href="css/bootstrap.min.css">                                                
+        <link rel="stylesheet" href="css/flexslider.css">                                                          
+        <link rel="stylesheet" href="css/main-style.css">
+        <script src="js/jquery-1.11.3.min.js"></script> 
+        <script src="js/jquery.flexslider-min.js"></script> 
+        <script src="js/jquery.backstretch.min.js"></script> 
+        <script src="js/main-script.js"></script> 
+    </head>
+    
+    <body class="page">
+        
+            
+            <!-- background images -->
+            <div class="page-bg-imgs-list">
+                <img src="img/story-bg-1.jpg" id="page-1-img" class="main-img" alt="About">
+                <img src="img/story-bg-2.jpg" id="page-2-img" alt="Gallery">
+                <img src="img/story-bg-3.jpg" id="page-3-img" alt="Services">
+                <img src="img/story-bg-4.jpg" id="page-4-img" alt="Contact">                            
+            </div>
+            
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                        
+                        <div class="header">
+
+                            <!-- site title -->
+                            <header class="box box-white">
+                                <a href="javascript:void(0)" class="js-site-title">
+                                    <h1 class="box-text site-title-text">Home Page</h1>    
+                                </a>            
+                            </header>
+                            
+                            <!-- site navigation -->
+                            <nav class="js-nav">
+                                <ul class="nav-items-container">
+
+                                    <li data-nav-item-id="page-1" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-1" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">Wisdom</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-2" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-2" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">Gallery</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-3" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-3" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">OpenCV</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-4" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-4" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">Contact</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </nav>    
+                        </div> <!-- .header -->
+
+                    </div>
+                    
+                    
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+                        <div class="content-wrapper js-content-wrapper">
+                            <!-- about -->
+                            <section data-page-id="page-1" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">Wisdom</h2>
+                                </header>
+                                
+                                <div class="content-text">
+                                    <p>
+                                    	No matter where you are, whether it's a quarter mile away 
+                                    	or half way across the world The most important thing 
+                                    	in life will always be the people in this room, right here, 
+                                    	right now You'll always be with me And you'll always be my 
+                                    	brother.
+                                    </p>
+                                    <p>
+                                    	Life is simple.You make choices and you don't look back
+                                    </p>
+                                </div>            
+
+                            </section> <!-- #about -->
+
+                            <!-- gallery -->
+                            <section data-page-id="page-2" class="content content-gallery js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">Galllery</h2>
+                                </header>
+                                
+                                <div class="content-text content-text-gallery">
+                                    
+                                    <!-- <p>Credits go to <a rel="nofollow" href="http://unsplash.com">Unsplash</a> for images.</p> -->
+
+                                    <div class="flexslider-wrapper">
+
+                                        <div id="slider" class="flexslider">
+                                            <ul class="slides">
+                                                <li><img src="img/slider/slide1.jpg" alt="Slide 1" /></li>
+                                                <li><img src="img/slider/slide2.jpg" alt="Slide 2" /></li>
+                                                <li><img src="img/slider/slide3.jpg" alt="Slide 3" /></li>
+                                                <li><img src="img/slider/slide4.jpg" alt="Slide 4" /></li>
+                                                <li><img src="img/slider/slide5.jpg" alt="Slide 5" /></li>
+                                                <li><img src="img/slider/slide6.jpg" alt="Slide 6" /></li>
+                                            </ul>
+                                        </div> <!-- #slider -->
+                                      
+                                        <div id="carousel" class="flexslider">
+                                            <ul class="slides">
+                                                <li><img src="img/slider/thumb1.jpg" alt="Thumbnail 1" /></li>
+                                                <li><img src="img/slider/thumb2.jpg" alt="Thumbnail 2" /></li>
+                                                <li><img src="img/slider/thumb3.jpg" alt="Thumbnail 3" /></li>
+                                                <li><img src="img/slider/thumb4.jpg" alt="Thumbnail 4" /></li>
+                                                <li><img src="img/slider/thumb5.jpg" alt="Thumbnail 5" /></li>
+                                                <li><img src="img/slider/thumb6.jpg" alt="Thumbnail 6" /></li>
+                                            </ul>
+                                        </div>  <!-- #carousel -->
+
+                                    </div>
+                                        
+                                </div>            
+
+                            </section> <!-- #gallery -->
+                            
+                            <!-- services -->
+                            <section data-page-id="page-3" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">Fist project</h2>
+                                </header>
+                                
+                                <div class="content-text">
+                                   <textarea name="" rows="30" cols="56"style="line-height: 1.0;">
+                                   		#include<opencv2/opencv.hpp>
+										using namespace cv;
+
+										int main() {
+											Mat srcImage = imread("G:/yangmi.jpg");
+											imshow("【原始图】Canny边缘检测", srcImage);
+											Mat dstImage, edge, grayImage;
+											cvtColor(srcImage, grayImage, COLOR_BGR2GRAY);
+											blur(grayImage, dstImage, Size(3, 3));
+											imshow("灰度滤波后", dstImage);
+											Canny(dstImage, edge, 50, 100, 3);
+											imshow("【效果图】Canny边缘检测",edge);
+											waitKey(0);
+											return 0;
+										}
+                                   </textarea>
+                                   <a href="https://www.github.com/xiandazhu" target="_blank">More</a>
+                                </div>            
+
+                            </section> <!-- #services -->
+
+                            <!-- contact -->
+                            <section data-page-id="page-4" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">Contact</h2>
+                                </header>
+                                
+                                <div class="content-text">
+                                    <p>Email:627393061@qq.com
+                                    </p>
+                                    <p>phone:</p>
+                                    <!--<form action="index.html" method="post" class="contact-form">
+
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-left">
+                                            <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
+                                        </div>
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-right">
+                                            <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="contact_message" name="contact_message" class="form-control" rows="4" placeholder="Message" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary submit-btn">Send</button>
+
+                                    </form>                           -->
+                                </div>            
+
+                            </section> <!-- #contact -->
+                        </div>
+                    </div>
+
+                </div>
+                    
+                <!-- footer row -->
+                <footer class="row footer js-footer">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        <p class="copyright-text"> 
+                        
+                        </p>  
+
+                    </div>                
+                </footer>
+
+            </div>  <!-- .container-fluid -->
+
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div><!-- /#preloader -->      
+            
+
+    
+    </body>
 </html>
