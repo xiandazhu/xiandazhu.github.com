@@ -1,0 +1,30 @@
+<res>
+   <item name="war/hero_down1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/hero_down2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/hero_down3.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/hero_down4.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/hero_fly1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/hero_fly2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy1_down1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy1_down2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy1_down3.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy1_down4.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy1_fly1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_down1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_down2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_down3.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_down4.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_fly1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy2_hit.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down3.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down4.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down5.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_down6.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_fly1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_fly2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/enemy3_hit.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/ufo1.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+   <item name="war/ufo2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0"/>
+</res>
